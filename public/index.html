@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Real-time Collaborative Textarea</title>
+  </head>
+  <body>
+    <textarea id="textarea"></textarea>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      socket.on('getInstance', function(instance) {
+        document.getElementById('textarea').value = instance;
+      });
+
+      document.getElementById('textarea').addEventListener('input', function() {
+        const instance = document.getElementById('textarea').value;
+        socket.emit('sendInstance', instance);
+      });
+    </script>
+  </body>
+</html>
