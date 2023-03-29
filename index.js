@@ -12,7 +12,7 @@ let PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
 server.listen(PORT, function() {
-  console.log('Server is listening on port' + `${PORT}`);
+  console.log('Server is listening on port ' + `${PORT}`);
 });
 
 let currentInstance = '';
