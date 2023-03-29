@@ -5,23 +5,25 @@
   </head>
   <body>
     <textarea id="textarea"></textarea>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
-    <script>
-      const options = {
-        "force new connection": true,
-        reconnectionAttempts: "Infinity",
-        timeout: 10000,
-      };
-      const socket = io("https://demo-share.onrender.com/", options);
-
-      socket.on('getInstance', function(instance) {
-        document.getElementById('textarea').value = instance;
-      });
-
-      document.getElementById('textarea').addEventListener('input', function() {
-        const instance = document.getElementById('textarea').value;
-        socket.emit('sendInstance', instance);
-      });
-    </script>
+    
+    
   </body>
-</html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+  <script>
+    const options = {
+      "force new connection": true,
+      reconnectionAttempts: "Infinity",
+      timeout: 10000,
+    };
+    const socket = io("https://demo-share.onrender.com/", options);
+
+    socket.on('getInstance', function(instance) {
+      document.getElementById('textarea').value = instance;
+    });
+
+    document.getElementById('textarea').addEventListener('input', function() {
+      const instance = document.getElementById('textarea').value;
+      socket.emit('sendInstance', instance);
+    });
+  </script>
+  </html>
