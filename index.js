@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http, {
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
   cors:{
-    origin: "https://demo-textshare.netlify.app",
+    origin: "*",
   },
 });
 
@@ -28,6 +28,6 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(3000, function() {
+server.listen(3000, function() {
   console.log('Server is listening on port 3000');
 });
