@@ -12,7 +12,7 @@
         reconnectionAttempts: "Infinity",
         timeout: 10000,
       };
-      const socket = io("https://demo-textshare.netlify.app", options);
+      const socket = io("https://demo-share.onrender.com/", options);
 
       socket.on('getInstance', function(instance) {
         document.getElementById('textarea').value = instance;
