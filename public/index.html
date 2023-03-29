@@ -10,12 +10,12 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
   <script>
-    const options = {
-      "force new connection": true,
-      reconnectionAttempts: "Infinity",
-      timeout: 10000,
-    };
-    const socket = io("https://demo-share.onrender.com/", options);
+    // const options = {
+    //   "force new connection": true,
+    //   reconnectionAttempts: "Infinity",
+    //   timeout: 10000,
+    // };
+    const socket = io("https://demo-share.onrender.com");
 
     socket.on('getInstance', function(instance) {
       document.getElementById('textarea').value = instance;
