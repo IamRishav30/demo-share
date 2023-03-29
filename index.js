@@ -7,9 +7,14 @@ const io = require('socket.io')(server, {
   },
 });
 
-let currentInstance = '';
+let PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
+server.listen(PORT, function() {
+  console.log('Server is listening on port' + `${PORT}`);
+});
+
+let currentInstance = '';
 
 io.on('connection', function(socket) {
   console.log('A user connected');
@@ -26,8 +31,4 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function() {
     console.log('A user disconnected');
   });
-});
-
-server.listen(3000, function() {
-  console.log('Server is listening on port 3000');
 });
