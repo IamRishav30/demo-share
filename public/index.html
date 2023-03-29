@@ -7,7 +7,7 @@
     <textarea id="textarea"></textarea>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
     <script>
-      const socket = io();
+      const socket = io('https://demo-textshare.netlify.app/');
 
       socket.on('getInstance', function(instance) {
         document.getElementById('textarea').value = instance;
