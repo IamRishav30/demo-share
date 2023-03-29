@@ -15,7 +15,9 @@
     //   reconnectionAttempts: "Infinity",
     //   timeout: 10000,
     // };
-    const socket = io("https://demo-share.onrender.com");
+    const socket = io("https://demo-share.onrender.com", {
+      transports: ['websocket']
+    });
 
     socket.on("connect_error", (err) => {
       console.log(`connect_error due to ${err.message}`);
