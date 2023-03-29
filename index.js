@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
-  cors:{
-    origin: "*",
-  },
+  cors: {
+    origin: 'https://demo-textshare.netlify.app',
+    methods: ['GET', 'POST']
+  }
 });
 
 let PORT = process.env.PORT || 3000;
